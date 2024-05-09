@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGMCA</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        text-decoration: none;
+    }
+
+    a {
+        color: #fff;
+    }
+
+    header {
+        text-align: center;
+        padding: .5em 0;
+        height: 90vh;
+        background: darkblue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        color: whitesmoke;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .wrt {
+        width: 100%;
+        height: fit-content;
+        padding: 2em 0;
+        background: whitesmoke;
+        /* background: linear-gradient(to top right, rgba(250, 150, 150, .3), rgba(0, 0, 50, .2)); */
+    }
+
+    i {
+        color: steelblue;
+    }
+
+    article {
+        padding: 1em 1em;
+        font-size: 1.1em;
+        line-height: 1.5em;
+        text-align: left;
+        color: slategray;
+        font-weight: 500;
+        font-family: sans-serif serif;
+    }
+
+    article::first-letter {
+        font-size: xxx-large;
+    }
+
+    .p1,
+    .p2,
+    .p3 {
+        padding: .5em 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: slategrey;
+    }
+
+    .p1::first-letter,
+    .p2::first-letter,
+    .p3::first-letter {
+        font-size: xxx-large;
+    }
+
+    address {
+        font-style: oblique;
+        font-family: cursive;
+        color: slategrey;
+    }
+
+    .btn {
+        display: flex;
+        gap: .4em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    button {
+        padding: .6em 2em;
+        border: none;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        border-radius: .5em;
+        font-size: 16px;
+        background: steelblue;
+        font-weight: bolder;
+        color: #fff;
+    }
+
+    .Register {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: xx-large;
+        color: steelblue;
+    }
+
+    form {
+        width: 70%;
+        height: fit-content;
+        padding: 1em 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+    }
+
+    input {
+        width: 20em;
+        padding: 1em 1.4em;
+        border: none;
+        border-radius: .4em;
+        background: rgba(0, 0, 50, .2);
+    }
+
+    .sbt {
+        background-color: steelblue;
+        color: #fff;
+        font-weight: 800;
+    }
+
+    .pics {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .head {
+        text-align: center;
+        padding: 1em 0;
+        background: wheat;
+    }
+
+    .head h3 {
+        font-size: 2.3em;
+    }
+
+    .head p {
+        color: slategray;
+        font-size: 1.4em;
+    }
+
+    .JUDGES {
+        background: wheat;
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        display: flex;
+        padding: 1em 0;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .JUDGE1,
+    .JUDGE2 {
+        flex: 1;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    img {
+        width: 10em;
+        height: 13em;
+        border-radius: .5em;
+        object-fit: cover;
+        transition: .5s;
+        margin-bottom: .5em;
+    }
+
+    img:hover {
+        scale: 1.03;
+    }
+
+    .img {
+        width: 85%;
+        height: 15em;
+        object-fit: cover;
+    }
+
+    .JUDGE {
+        text-align: center;
+    }
+
+    .name {
+        color: slategray;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .Contestant {
+        background: wheat;
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        display: flex;
+        padding: 1em 0;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .About {
+        width: 100%;
+        height: fit-content;
+        background: black;
+    }
+
+    article:nth-child(2) {
+        color: #fff;
+    }
+
+    footer {
+        width: 100%;
+        height: fit-content;
+        padding: 1em 0;
+        background: steelblue;
+        align-items: center;
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .email,
+    .handles,
+    .location {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0;
+        background: #000;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .logo {
+        border-radius: 30%;
+        width: 6em;
+        height: 4em;
+        margin: 1em;
+
+    }
+
+    .icons {
+        display: flex;
+        gap: 1.6em;
+    }
+
+    .flier {
+        width: 100vw;
+        padding: 1em 0;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+</style>
+
+<body>
+    <nav>
+        <div> <img class="logo" src="/IMG-20240418-WA0005.jpg" alt=""></div>
+
+        <div class="icons">
+
+            <a href="https://web.facebook.com/profile.php?id=100087240624345">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="bi bi-facebook"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                </svg>
+            </a>
+
+            <a href="https://wa.me/+2348093948949">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="bi bi-whatsapp"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                </svg>
+            </a>
+
+            <a href="https://www.instagram.com/therhythmandlyricsproject/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff" class="bi bi-instagram"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                </svg>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=eDsh0I30ePM">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff" class="bi bi-youtube"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                </svg>
+            </a>
+
+        </div>
+    </nav>
+
+    <header>
+
+        <h1>
+            <div><img class="img" src="/IMG-20240407-WA0011.jpg" alt=""></div>RGMCA 2024
+        </h1>
+
+    </header>
+
+    <div class="wrt">
+        <article data-aos="fade-up">
+            We live in a world where rhythm and lyrics collide in an electrofying fusion giving birth to
+            inspiration,motivation and a positive vibes
+            around us .
+            <p class="p1">Now across Nigeria, a new era has began creating a new platform of reality music show
+                ,connecting all musicians (singers and instrumantalist) to ONE BIG stage hereby fostering a better
+                future for prodigiously talented musicians to attain unprecidented rewards according to proficiency and
+                excellent
+                renditions in this great gospel music competition. RYTHM & LYRICS PROJECT !!! The invasion of sound and
+                vocals ...
+            </p>
+
+            <p class="p2">
+                Shooting our first quarterly music competition <i><b>(REVAMPED GOSPEL MUSIC COMPETITION AWARDS - RGMCA
+                        2024 )</b></i>
+                in touching down to our yearly tv music realty show (RYTHM & LYRICS PROJECT).
+
+            <div class="btn">
+                <button data-aos="fade-left"><a href="#Register">Register</a></button>
+                <button data-aos="fade-right"><a href="#About">About Us</a></button>
+            </div>
+
+            <p class="p3">Your journey to stardom calls !!!</p>
+
+            <p class="p4">
+
+            <address style="color: slateblue;font-size: 20px;">Your giant strides make the difference!!</address>
+            <a style="color: slateblue;" href="/rgmca/registeration/process">Click here for registeration process </a>
+            </p>
+            </p>
+
+        </article>
+    </div>
+
+    <section class="flier">
+
+        <div>
+            <img style="width: 90%;" src="/IMG-20240417-WA0133.jpg" alt="">
+        </div>
+
+        <div>
+            <img style="width: 90%;" src="/IMG-20240417-WA0132.jpg" alt="">
+        </div>
+
+    </section>
+
+    <section class="pics">
+        <div class="head">
+            <h3 style="color: steelblue;">Info Gallery</h3>
+            <p>JUDGES</p>
+        </div>
+
+        <main class="JUDGES">
+            <div class="JUDGE1">
+                <div> <img data-aos="zoom-in" src="/IMG-20240418-WA0018.jpg" alt=""></div>
+                <div class="JUDGE">
+                    <p style="font-weight: 900;font-size: 1.2em;" class="">Veteran Veno Mbanifo</p>
+                    <p class="name">
+                        RGMCA JUDGE/ INSTRUCTOR
+                    <p
+                        style="color: steelblue;padding: .5em;margin: .5em;font-weight: 900;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifß;">
+                        National 'Hit' singer (NIGERIA GO SURVIVE),Music Artist,Public Speaker,English Elocution and
+                        Creative Writing</p>
+                    </p>
+                </div>
+            </div>
+
+            <div class="JUDGE1">
+                <div> <img data-aos="zoom-out-right" src="/IMG-20240418-WA0019.jpg" alt=""></div>
+                <div class="JUDGE">
+                    <p style="font-weight: 900;font-size: 1.2em;" class="">Mr. Tazz</p>
+                    <p class="name">
+                        RGMCA JUDGE/ CO HOST
+                    <p
+                        style="color: steelblue;margin: .5em;font-weight: 900;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;padding: .5em;">
+                        Song Writer ,Singer,TV/RADIO Personality,multi talented and he is the lead singer for MARRIAGE
+                        PLUS </p>
+                    </p>
+                </div>
+            </div>
+
+            <div class="JUDGE1">
+                <div><img
+                        src="https://img.freepik.com/free-vector/mysterious-gangster-character_23-2148466806.jpg?t=st=1713549380~exp=1713552980~hmac=57440dea7440b99bc2d6fb71fe1573033675bfb9454f00bc71806c541403dd1e&w=740"
+                        alt=""></div>
+                <div class="JUDGE" data-aos="fade-up">
+                    <p style="font-weight: 900;font-size: 1.2em;color: slategray;" class=""> Other judges unveiling </p>
+                    <p class="name">...</p>
+                </div>
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <section class="Contestant">
+        <div class="head">
+            <h3 style="color: steelblue;">Contestants/Live Auditions</h3>
+            <p style="margin-top: .5em;">Our First Lagos Live Audition Photos</p>
+        </div>
+
+
+        <main class="JUDGES">
+            <div class="JUDGE1">
+                <div> <img data-aos="fade-up" src="/IMG-20240417-WA0084.jpg" alt=""></div>
+                <div class="JUDGE">
+                    <p style="font-weight: 900;font-size: 1.2em;" class="">Samuel Wisdom</p>
+                    <p class="name">Pianist/Producer</p>
+                </div>
+            </div>
+
+            <div class="JUDGE1">
+                <div> <img data-aos="fade-right" src="/IMG-20240415-WA0045.jpg" alt=""></div>
+                <div class="JUDGE">
+                    <p style="font-weight: 900;font-size: 1.2em;" class=""> Grace Iyobosa</p>
+                    <p class="name">Singer</p>
+                </div>
+            </div>
+
+            <div class="JUDGE1">
+                <div> <img data-aos="fade-left" src="/IMG-20240415-WA0054.jpg" alt=""></div>
+                <div class="JUDGE">
+                    <p style="font-weight: 900;font-size: 1.2em;" class="">Edmund</p>
+                    <p class="name">Singer/Drummer</p>
+                </div>
+            </div>
+
+            <div class="JUDGE1">
+                <div> <img data-aos="zoom-in" src="/IMG-20240415-WA0096.jpg" alt=""></div>
+                <div class="JUDGE">
+                    <p style="font-weight: 900;font-size: 1.2em;" class="">Adetayo Damilola</p>
+                    <p class="name">Singer</p>
+                </div>
+            </div>
+
+            <div class="JUDGE1">
+                <div> <img data-aos="zoom-out-right" src="/IMG-20240415-WA0111.jpg" alt=""></div>
+                <div class="JUDGE">
+                    <p style="font-weight: 900;font-size: 1.2em;" class="">Ekenne Emmanuel</p>
+                    <p class="name">Singer</p>
+                </div>
+            </div>
+
+            <div class="JUDGE1">
+                <div> <img data-aos="zoom-out-left" src="/IMG-20240415-WA0114.jpg" alt=""></div>
+                <div class="JUDGE">
+                    <p style="font-weight: 900;font-size: 1.2em;" class=""> Ebere Zion </p>
+                    <p class="name">Singer</p>
+                </div>
+            </div>
+
+            <div class="JUDGE1">
+                <div class="JUDGE">
+                    <p style="font-weight: 900;font-size: 1.2em;" class=""> And Many More </p>
+                    <p class="name">...</p>
+                </div>
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <section class="About" id="About">
+        <div class="head">
+            <h3 style="color: steelblue;">About Us</h3>
+            <p>Who we are..</p>
+        </div>
+
+        <article style="background: darkblue;">
+           <p style="margin: 1em 0;">
+            The journey started in 2009 as DRHIHMAKX CO LTD solely engaged in music production.Now as an entertainment music company as it were,the need to launch out into the Internet space and the music business world arose with the advent of shooting a TV music reality show amongst other products of the company.
+           </p>
+
+           <p style="margin: 1em 0;">
+            RHYTHM & LYRICS PROJECT is a GOSPEL MUSIC TV REALITY SHOW with a difference designed to converge vocalists and Instrumentalists in music competition where great rewards and awards are certain on our one big super stage down to the advent of several editions uniquely. 
+           </p>
+
+           <p style="margin: 1em 0;">
+            So,we scout and discover great latent talents through our live and online music auditions keeping in view great rewards and awards to the exceptionally talented music folks across Nigeria and Africa spreading and creating a niche globally.
+           </p>
+
+           <p style="margin: 1em 0;">
+            Now you can join our Revamped Gospel Music Competition Awards (RGMCA 2024) 1ST EDITION.This is done Quarterly.
+           </p>
+
+            <!-- <p >
+                The invasion of sound and vocals.This is our yearly TV music reality show project. RYTHM & LYRICS
+                PROJECT also birthed a quarterly project titled "REVAMPED MUSIC GOSPEL MUSIC COMPETITION AWARDS"
+                2024(RGMCA).
+                This is our quarterly music competition that converges vocalists and instrumantalists to show case their
+                prowness on our platform.
+
+            </p> -->
+
+            <div class="head" style="padding: 1em 0;">
+                <h3 style="color: steelblue;">Mission</h3>
+                <p>.....</p>
+
+                <article>
+                    Create a platform for synergy in music symphony and embrace creativity by bringing
+                    visibility/recognition to the exceptionally talented individuals globally ...
+                </article>
+            </div>
+
+            <div class="head" style="padding: 1em 0;">
+                <h3 style="color: steelblue;">Vision</h3>
+                <p>.....</p>
+
+                <article>
+                    To maximize the dreams of musically talented folks beyond expectations.
+                </article>
+            </div>
+            
+
+        </article>
+
+    </section>
+
+    <section class="Register" id="Register">
+        <h2>Register</h2>
+
+        <form action="/" method="post">
+            <input type="text" name="name" placeholder="Enter your full name">
+            <input type="text" name="stage" placeholder="Stage name (Optional)">
+            <input type="text" name="craft" placeholder="Craft (Pinist,Singer,etc)">
+            <input type="number" name="whatsappnumber" placeholder="Whatsapp number">
+            <input type="text" name="email" placeholder="Email address">
+            <input type="text" name="state" placeholder="State">
+            <input type="text" name="city" placeholder="City">
+            <input class="sbt" type="submit" value="Submit">
+        </form>
+
+        <div
+            style="width: 100vw; padding: 1em 1em;font-weight: bolder;color: slategray;display: flex;flex-direction: column;align-items: center;">
+            <p style="width: 100%;text-align: center;">Please do well to check your email after registration in order to
+                proceed.Category of musicians needed are :- </p>
+            <p style="width: 100%;margin-bottom: 1em;">
+                VOCALISTS,KEYBORDISTS,DRUMMERS,BASSISTS,
+                GUITARISTS,SAXOPHONISTS,VIOLINISTS,
+                TROMBONISTS,and FLUTERISTS.
+
+            </p>
+
+        </div>
+    </section>
+
+    <footer style="background: darkblue;">
+        <h3 style="color: #fff;">For sponsorship and futher enquiries contact</h3>
+
+        <div>
+            <div class="email">
+
+                <p
+                    style="color:seashell;font-size: larger;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                 <a href="mailto:rythmandlyricsproject@gmail.com">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="lime" class="bi bi-envelope"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                </svg>
+                rythmandlyricsproject@gmail.com
+                 </a>
+                </p>
+                <p
+                    style="color:seashell;font-size: larger;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="lime" class="bi bi-whatsapp"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                    </svg>
+
+                    (+234-809-394-8949) <small>Whatsapp only</small>
+                </p>
+
+            </div>
+
+            <div class="location" style="text-align: center;">
+                <p style="text-decoration: 1px solid orange underline;padding: .2em;text-align: center;"><a href="mailto:wisdsamuel9119@gmail.com" style="font-size: larger;color: darkorange;letter-spacing: .5em;text-align: center;">Created by KnowUrCraft </a></p>
+                <p
+                    style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: whitesmoke;margin-top: 1em;">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="lime"
+                        class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                    </svg>
+
+                    34,Kayode Shonewo Street,Ifako Ijaiye,Ogba Ikeja Lagos
+
+                </p>
+
+            </div>
+
+            <div class="handles">
+
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script>
+        AOS.init({ duration: 800 });
+    </script>
+</body>
+
+</html>
