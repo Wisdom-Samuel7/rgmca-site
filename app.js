@@ -71,57 +71,44 @@ app.post("/", async (req, res) => {
                      <p><h2 style="color:steelblue;font-family:cursive;">RGMCA 2024</h2></p>
                      https://rythmandlyricsproject.onrender.com/     
                       <div style="width:100%;height:fit-content;padding:2em 0;display:flex;flex-diection:column;justify-content:center;align-items:center;">
-                         WELDONE....  ${email}
+                         WELDONE ....  ${email}
                       </div>
  
                       <div> 
-                        <p style="margin-top:1em;margin-bottom:1em;font-size:1.2em;">A big congratulations to you from RHYTHM & LYRICS PROJECT MGT TEAM for your successful registeration </p>
+                        <h1 style="margin-top:1em;margin-bottom:1em;font-size:1.2em;"> Wow! </h1>
                          <div style="width:100%;height:fit-content;style:"border-radius:.5em;"> <img src="https://img.freepik.com/free-photo/passionate-black-male-singer-performing-against-red_1258-26348.jpg?t=st=1713625949~exp=1713629549~hmac=e32591c744d4c6fffe4c79b378012b9c5e71256a3f0c70b7a462bf4cceb3ebe2&w=740"></div>
                       </div>
 
                       <div>
                         
-                      <p> Your registeration was quite successfull! </p>
-                         <h1 style="margin-top:1em;margin-bottom:1em;color:cornflowerblue;">YOU ARE WELCOME ON BOARD..</h1>
+                         <h1 style="margin-top:1em;margin-bottom:1em;color:cornflowerblue;">YOU ARE WELCOME ON BOARD!</h1>
+ 
 
-                        <p style="color:slategrey;font-family:fantasy;">Please follow the audition process below to navigate your way to the Telegram audition room and upload your personal performance videos </p>
-                        
-                        <p>
-
-                           REVAMPED GOSPEL MUSIC COMPETITION AWARDS (RGMCA 2024) is determined and dedicated music talented folks with resilience.
-                          
-                         </p>
+                          <p>
+                             Please follow the few instructions below!
+                          </p>
                         
                         <p style="color:cornflowerblue;font-family:fantasy;">
-                          AUDITION ENDS ON THE 26TH OF MAY , 2024.
+                          
+                           <ol>
+
+                             <li> YOU ARE REQUIRED TO PAY A FEE FOR service charge in the tune of #2500.It covers downloading video uploads of participants,reviews and timely feedbacks. </li>
+
+                              <li> MAKE A PAYMENT PROOF TO THE DRHIHMAKX CO LTD <span style="color:navy;">0204103393 (UNION BANK PLC).<span> </li>
+
+                              <li> SEND PAYMENT PROOF TO admin on <a href="https://wa.me/+2348093948949"> 08093948949 </a> and gain access to video uploads/ audition room. </li>
+ 
+                              <li> CLICK <a href="https://chat.whatsapp.com/GgX5MpbzxZIGpdfXMaG46t"></a> TO JOIN THE UPDATES GROUP <li>
+                           </ol>
                     
                         </p>
 
                         <section>
 
-                         <p style="color:slategrey;font-family:fantasy;" > See you at the top </p>
+                          <p style="color:slategrey;font-family:fantasy;" > See you at the top </p>
                         
                         </section>
 
-                        <p>
-
-                        <article>
-                    
-                       <ol> 
-                           <li> 
-                               <p>
-                                 PLEASE JOIN THE INFO GROUP and immediately request from the admin <a href="https://wa.me/+2348093948949">here</a> for the link to the FREE UPLOADS/REVIEWING GROUP and get started now.
-                               </p>
-                           </li>
-               
-               
-                           <li> &nbsp;See the link below </li>
-
-                           <li> <a href="https://chat.whatsapp.com/CffGVOk1Q43CTwlaTdoOwo">here</a>  </li>
-                          
-                       </ol>
-                      </article>
-                        </p>
 
                       </div>
                       
@@ -139,7 +126,7 @@ app.post("/", async (req, res) => {
             })
 
         }
-        
+
 
     } catch (error) {
         console.log(error)
@@ -150,6 +137,10 @@ app.get("/rgmca/registeration/process", (req, res) => {
     res.sendFile(__dirname + "/view/regprocess.html")
 })
 
-app.listen(3000, () => {
-    console.log("SERVER CONNECTED")
+app.get("/rgmca/upload-portal", (req, res) => {
+    res.sendFile(__dirname + "/view/portal.html")
+})
+
+app.listen(4000, () => {
+    console.log("SERVER CONNECTEDn -- 4000")
 })
