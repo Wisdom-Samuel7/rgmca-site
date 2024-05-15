@@ -94,11 +94,11 @@ app.post("/", async (req, res) => {
 
                              <li> YOU ARE REQUIRED TO PAY A FEE FOR service charge in the tune of #2500.It covers downloading video uploads of participants,reviews and timely feedbacks. </li>
 
-                              <li> MAKE A PAYMENT PROOF TO THE DRHIHMAKX CO LTD <span style="color:navy;">0204103393 (UNION BANK PLC).<span> </li>
+                              <li> MAKE A PAYMENT PROOF TO THE DRHIHMAKX CO LTD <span style="color:cornflowerblue;">0204103393 (UNION BANK PLC).<span> </li>
 
                               <li> SEND PAYMENT PROOF TO admin on <a href="https://wa.me/+2348093948949"> 08093948949 </a> and gain access to video uploads/ audition room. </li>
  
-                              <li> CLICK <a href="https://chat.whatsapp.com/GgX5MpbzxZIGpdfXMaG46t"></a> TO JOIN THE UPDATES GROUP <li>
+                              <li> CLICK <a href="https://chat.whatsapp.com/GgX5MpbzxZIGpdfXMaG46t">here</a> TO JOIN THE UPDATES GROUP <li>
                            </ol>
                     
                         </p>
